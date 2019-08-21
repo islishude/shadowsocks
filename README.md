@@ -17,15 +17,24 @@ docker run -d -p 1080:1080 islishude/shadowsocks \
 
 learn more to see [this](https://github.com/shadowsocks/go-shadowsocks2/blob/master/README.md).
 
-### Usage
+## Usage
+
+go-shadowsocks doesn't support http proxy at now,use sock5 proxy please
 
 ```console
 $ export ALL_PROXY=sock5://127.0.0.1:1080
-$ curl https://google.com
-<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="https://www.google.com/">here</A>.
-</BODY></HTML>
+$ curl -I https://google.com
+HTTP/1.1 200 Connection established
+
+HTTP/2 301
+location: https://www.google.com/
+content-type: text/html; charset=UTF-8
+date: Thu, 28 Feb 2019 03:37:48 GMT
+expires: Sat, 30 Mar 2019 03:37:48 GMT
+cache-control: public, max-age=2592000
+server: gws
+content-length: 220
+x-xss-protection: 1; mode=block
+x-frame-options: SAMEORIGIN
+alt-svc: quic=":443"; ma=2592000; v="44,43,39"
 ```
