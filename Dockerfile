@@ -1,4 +1,4 @@
-FROM golang:1.12.9-alpine3.10 AS BUILDER
+FROM golang:1.13.0-alpine3.10 AS BUILDER
 RUN apk update && apk add --no-cache git ca-certificates
 RUN go get -v -ldflags '-w -s' github.com/shadowsocks/go-shadowsocks2
 RUN mkdir /user && \
