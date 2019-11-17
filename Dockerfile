@@ -6,7 +6,7 @@ RUN mkdir /user && \
 RUN apk update && apk add --no-cache git ca-certificates
 WORKDIR app
 RUN git clone https://github.com/shadowsocks/go-shadowsocks2
-RUN go install
+RUN cd go-shadowsocks2 && go install
 
 FROM alpine:3.10.3@sha256:77cbe97593c890eb1c4cadcbca37809ebff2b5f46a036666866c99f08a708967
 COPY --from=BUILDER /user/group /user/passwd /etc/
