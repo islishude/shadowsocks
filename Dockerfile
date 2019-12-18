@@ -5,7 +5,7 @@ WORKDIR /workdir
 RUN git clone --quiet --depth=1 https://github.com/shadowsocks/go-shadowsocks2 .
 RUN go install
 
-FROM alpine:3.10.3@sha256:77cbe97593c890eb1c4cadcbca37809ebff2b5f46a036666866c99f08a708967
+FROM alpine:3.10.3@sha256:e4355b66995c96b4b468159fc5c7e3540fcef961189ca13fee877798649f531a
 COPY --from=BUILDER /go/bin/go-shadowsocks2 /usr/local/bin/shadowsocks
 USER nobody:nobody
 ENTRYPOINT [ "/usr/local/bin/shadowsocks" ]
