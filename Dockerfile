@@ -1,4 +1,4 @@
-FROM golang:1.13.5-alpine@sha256:ddf407284440a94889dc139bbe1be1daa19d99e166d6b1f2dfc6919846810b4e AS BUILDER
+FROM golang:1.13.5-alpine@sha256:eec8b6c0bc53eff8fc6d5f934279138854f6c93c7d997cb292bcab09d3c6a3b6 AS BUILDER
 ENV GO111MODULE=on
 RUN apk add --no-cache git ca-certificates
 WORKDIR /workdir
