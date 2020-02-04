@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine
+FROM golang:1.13-alpine as BUILDER
 ENV GO111MODULE=on
 RUN apk add --no-cache git ca-certificates
 WORKDIR /workdir
